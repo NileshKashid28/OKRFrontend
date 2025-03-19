@@ -1,0 +1,66 @@
+<div class="create-user-container">
+  <h1>Create New User</h1>
+  <p class="subtext">
+    Add a new user to your organization. Fill in all the required information.
+  </p>
+
+  <form>
+    <!-- Username -->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        placeholder="johndoe"
+        class="form-control"
+      />
+      <small>This will be the user's login name.</small>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="john.doe@example.com"
+        class="form-control"
+      />
+      <small>The user will receive a confirmation email.</small>
+    </div>
+
+    <!-- Designation -->
+    <div class="form-group">
+      <label for="designation">Designation</label>
+      <select id="designation" class="form-control">
+        <option selected disabled>Select a designation</option>
+        <option>CEO</option>
+        <option>Co-CEO</option>
+        <option>President</option>
+        <option>General Manager</option>
+        <option>Program manager</option>
+        <option>Employee</option>
+      </select>
+      <small>The user's role in the organization.</small>
+    </div>
+
+    <!-- Manager Name -->
+    <div class="form-group">
+      <label for="manager">Manager Name</label>
+      <input
+        type="text"
+        id="manager"
+        placeholder="Jane Smith"
+        class="form-control"
+      />
+      <small>The name of the user's direct manager.</small>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-group">
+      <button type="submit" class="btn-primary">Create User</button>
+      <button type="reset" class="btn-secondary">Reset</button>
+      <button type="button" class="btn-cancel">Cancel</button>
+    </div>
+  </form>
+</div>

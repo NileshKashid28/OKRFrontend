@@ -1,0 +1,212 @@
+/* Root variables for theme colors */
+:root {
+  --sidebar-bg: #6a1b9a; /* Dark violet */
+  --sidebar-hover: #8e24aa; /* Lighter violet */
+  --sidebar-text: #fff;
+  --main-bg: #fce4ec; /* Light pink */
+  --card-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --text-dark: #333;
+  --text-secondary: #888;
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--main-bg);
+  height: 100vh;
+  overflow-y: auto; /* Enable full-page scrolling */
+}
+
+/* Main container */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow-y: auto; /* Enable scroll for full page */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #6a1b9a, #8e24aa);
+  color: var(--sidebar-text);
+  padding: 1rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  transition: width 0.3s ease-in-out;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Collapsed Sidebar */
+.sidebar-collapsed {
+  width: 60px;
+}
+
+/* Sidebar Header */
+.sidebar h2 {
+  margin-top: 0;
+  padding-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-bottom: 1px solid var(--sidebar-hover);
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Hide sidebar text when collapsed */
+.sidebar-collapsed h2,
+.sidebar-collapsed .nav-section {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Sidebar navigation section */
+.nav-section {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* Sidebar navigation items */
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.nav-item:hover {
+  background-color: var(--sidebar-hover);
+  transform: translateX(5px);
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--sidebar-text);
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 300px;
+  padding: 20px;
+  width: calc(100% - 250px);
+  background-color: var(--main-bg);
+  min-height: 100vh;
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+/* Expanded Content when sidebar is collapsed */
+.content-expanded {
+  margin-left: 60px;
+  width: calc(100% - 60px);
+}
+
+/* Toggle Button */
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  left: 270px;
+  padding: 10px 14px;
+  font-size: 16px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: left 0.3s ease-in-out, background-color 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: var(--sidebar-hover);
+}
+
+/* Button moves with sidebar */
+.sidebar-collapsed + .main-content .toggle-btn {
+  left: 80px;
+}
+
+/* Dashboard Card */
+.dashboard-card {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  max-width: 700px;
+  margin-top: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--sidebar-bg);
+}
+
+.dashboard-card p {
+  margin: 5px 0;
+  color: var(--text-secondary);
+}
+
+/* Scrollbar Customization */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ba68c8;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f3e5f5;
+}
+
+/* Main content scrollbar */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background-color: #ba68c8;
+  border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background-color: #f3e5f5;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .toggle-btn {
+    left: 20px;
+    top: 10px;
+  }
+}
+

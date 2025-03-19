@@ -1,0 +1,16 @@
+<h1>OKR Administration</h1>
+<div class="dashboard-card">
+  <h3>Welcome to OKR Admin Dashboard</h3>
+  <p>Manage users, groups, and OKR settings from this central dashboard.</p>
+  <p>Select an option from the sidebar to get started with user and group management.</p>
+
+
+<p>This is the data </p>
+  <h2>Fetched Data</h2>
+<div *ngIf="data.length > 0; else noData">
+  <div *ngFor="let item of data">
+    <p>{{ item.name }} - {{ item.description }}</p>
+  </div>
+</div>
+
+</div>
