@@ -1,13 +1,16 @@
 /* Root variables for theme colors */
 :root {
-  --sidebar-bg: #6a1b9a; /* Dark violet */
-  --sidebar-hover: #8e24aa; /* Lighter violet */
+  --sidebar-bg: #3a5bf0; /* Primary Blue */
+  --sidebar-hover: #4842c2; /* Deep Blue */
   --sidebar-text: #fff;
-  --main-bg: #fce4ec; /* Light pink */
-  --card-bg: #fff;
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --text-dark: #333;
-  --text-secondary: #888;
+  --main-bg: #f8f9fc; /* Light Background */
+  --card-bg: #ffffff; /* White Card Background */
+  --card-shadow: rgba(67, 97, 238, 0.2); /* Light shadow with blue tint */
+  --text-dark: #2b2d42; /* Dark Text */
+  --text-secondary: #6c757d; /* Secondary Text */
+  --border-color: #e9ecef;
+  --hover-color: #f1f3f9; /* Hover Background */
+  --success-color: #4cc9f0; /* Success Color */
 }
 
 /* Global styles */
@@ -29,7 +32,7 @@ body {
 /* Sidebar */
 .sidebar {
   width: 250px;
-  background: linear-gradient(180deg, #6a1b9a, #8e24aa);
+  background: linear-gradient(180deg, #4361ee, #3f37c9);
   color: var(--sidebar-text);
   padding: 1rem;
   height: 100vh;
@@ -38,7 +41,7 @@ body {
   left: 0;
   overflow-y: auto;
   transition: width 0.3s ease-in-out;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 10px var(--card-shadow);
 }
 
 /* Collapsed Sidebar */
@@ -69,7 +72,7 @@ body {
   margin-top: 1rem;
   font-size: 0.9rem;
   font-weight: bold;
-  color: var(--text-secondary);
+  color: white;
   text-transform: uppercase;
 }
 
@@ -169,12 +172,12 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #ba68c8;
+  background-color: var(--sidebar-hover); /* Deep Blue */
   border-radius: 4px;
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #f3e5f5;
+  background-color: var(--hover-color);
 }
 
 /* Main content scrollbar */
@@ -183,12 +186,12 @@ body::-webkit-scrollbar-track {
 }
 
 .main-content::-webkit-scrollbar-thumb {
-  background-color: #ba68c8;
+  background-color: var(--sidebar-hover); /* Deep Blue */
   border-radius: 4px;
 }
 
 .main-content::-webkit-scrollbar-track {
-  background-color: #f3e5f5;
+  background-color: var(--hover-color);
 }
 
 /* Mobile responsiveness */
@@ -209,4 +212,3 @@ body::-webkit-scrollbar-track {
     top: 10px;
   }
 }
-

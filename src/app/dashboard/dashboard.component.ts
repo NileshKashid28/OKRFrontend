@@ -23,6 +23,7 @@ export class DashboardComponent {
     this.httpService.getData().subscribe(
       (response) => {
         this.data = response;
+        console.log("Hiiiii ")
         console.log('Data received:', this.data);
       },
       (error) => {

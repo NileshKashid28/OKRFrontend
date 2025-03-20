@@ -1,66 +1,55 @@
 <div class="create-user-container">
-  <h1>Create New User</h1>
-  <p class="subtext">
-    Add a new user to your organization. Fill in all the required information.
-  </p>
+  <div class="side-menu">
+    <h2>User Management</h2>
 
-  <form>
-    <!-- Username -->
-    <div class="form-group">
-      <label for="username">Username</label>
+    <!-- Div Group for Actions (Vertical Layout) -->
+    <div class="div-group">
+      <div class="action-div create-div" (click)="goToCreateUser()">➕ Create User</div>
+      <div class="action-div search-div" (click)="goToSearchUser()">🔍 Search User</div>
+      <div class="action-div view-div" (click)="goToViewAllUsers()">👥 View All Users</div>
+    </div>
+  </div>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-content">
+    <!-- Welcome Section with Dashboard Card Style -->
+    <div class="welcome-card">
+      <h3>Welcome to User Management</h3>
+      <p>
+        Easily manage your users by creating, searching, and viewing profiles. Select an option from the left menu to get started.
+      </p>
+    </div>
+
+    <ng-container *ngIf="currentView === 'create'">
+      <h3>Create a New User</h3>
+      <form (ngSubmit)="onSubmit()" class="form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="submit-div" (click)="onSubmit()">Create</div>
+      </form>
+    </ng-container>
+
+    <ng-container *ngIf="currentView === 'search'">
+      <h3>Search for a User</h3>
       <input
         type="text"
-        id="username"
-        placeholder="johndoe"
-        class="form-control"
+        placeholder="Enter username or email"
+        class="search-input"
       />
-      <small>This will be the user's login name.</small>
-    </div>
+      <div class="search-div" >Search</div>
+    </ng-container>
 
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        placeholder="john.doe@example.com"
-        class="form-control"
-      />
-      <small>The user will receive a confirmation email.</small>
-    </div>
-
-    <!-- Designation -->
-    <div class="form-group">
-      <label for="designation">Designation</label>
-      <select id="designation" class="form-control">
-        <option selected disabled>Select a designation</option>
-        <option>CEO</option>
-        <option>Co-CEO</option>
-        <option>President</option>
-        <option>General Manager</option>
-        <option>Program manager</option>
-        <option>Employee</option>
-      </select>
-      <small>The user's role in the organization.</small>
-    </div>
-
-    <!-- Manager Name -->
-    <div class="form-group">
-      <label for="manager">Manager Name</label>
-      <input
-        type="text"
-        id="manager"
-        placeholder="Jane Smith"
-        class="form-control"
-      />
-      <small>The name of the user's direct manager.</small>
-    </div>
-
-    <!-- Action Buttons -->
-    <div class="button-group">
-      <button type="submit" class="btn-primary">Create User</button>
-      <button type="reset" class="btn-secondary">Reset</button>
-      <button type="button" class="btn-cancel">Cancel</button>
-    </div>
-  </form>
+    <ng-container *ngIf="currentView === 'view'">
+      <h3>All Users</h3>
+      <div *ngFor="let user of allUsers" class="user-card">
+        <p><strong>{{ user.username }}</strong> - {{ user.email }}</p>
+      </div>
+    </ng-container>
+  </div>
 </div>

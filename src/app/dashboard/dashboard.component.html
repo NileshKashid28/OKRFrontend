@@ -7,10 +7,14 @@
 
 <p>This is the data </p>
   <h2>Fetched Data</h2>
-<div *ngIf="data.length > 0; else noData">
-  <div *ngFor="let item of data">
+  @if(data.length > 0){
+<div >
+  @for(item of data;track item){
+  <div >
     <p>{{ item.name }} - {{ item.description }}</p>
   </div>
+}
 </div>
+  }
 
 </div>
